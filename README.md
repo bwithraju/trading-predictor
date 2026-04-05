@@ -33,11 +33,13 @@ The API is available at **http://localhost:8000**. Docs at **http://localhost:80
 |--------|------|-------------|
 | GET | `/` | Liveness |
 | GET | `/health` | Health + DB status |
-| POST | `/predict` | ML prediction + risk |
-| POST | `/risk` | Risk calculator |
+| POST | `/predict/stock` | ML prediction for stocks |
+| POST | `/predict/crypto` | ML prediction for crypto |
+| POST | `/calculate-risk` | Risk calculator |
 | POST | `/backtest` | Historical backtest |
-| GET | `/indicators/{symbol}` | Technical indicators |
-| POST | `/train` | Train ML model |
+| GET | `/analyze/{symbol}` | Full technical analysis |
+| GET | `/indicators/{symbol}` | Current indicator values |
+| POST | `/train/{symbol}` | Train ML model |
 | GET | `/metrics` | Prometheus metrics |
 | WS | `/ws/updates` | Real-time WebSocket |
 
