@@ -10,6 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from config import config
 from src.api.endpoints import router
+from monitoring.dashboard import router as monitoring_router
 from src.auth.middleware import RateLimitMiddleware
 from src.db.models import init_db
 from src.utils.logger import get_logger
@@ -51,6 +52,7 @@ app.add_middleware(
 app.add_middleware(RateLimitMiddleware)
 
 app.include_router(router)
+app.include_router(monitoring_router)
 
 
 @app.on_event("startup")
