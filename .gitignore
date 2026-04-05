@@ -13,3 +13,15 @@ venv.bak/
 *.egg
 *.log
 *.sqlite3
+
+# Project artifacts
+.env
+cache/
+models/*.pkl
+trading_predictor.db
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+notebooks/
