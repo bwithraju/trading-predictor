@@ -13,3 +13,17 @@ venv.bak/
 *.egg
 *.log
 *.sqlite3
+
+# Build artifacts & generated files
+models/
+cache/
+*.db
+.pytest_cache/
+
+# Environment
+.env
+
+# Node / Frontend
+node_modules/
+frontend/node_modules/
+frontend/build/
