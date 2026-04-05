@@ -79,8 +79,8 @@ def health() -> dict[str, Any]:
 
         with engine.connect() as conn:
             conn.execute(text("SELECT 1"))
-    except Exception as exc:  # noqa: BLE001
-        db_status = f"error: {exc}"
+    except Exception:  # noqa: BLE001
+        db_status = "error"
 
     return {
         "status": "healthy" if db_status == "ok" else "degraded",

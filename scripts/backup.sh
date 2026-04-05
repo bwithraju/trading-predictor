@@ -21,5 +21,5 @@ DEST="$BACKUP_DIR/${DB_FILE%.db}_${TIMESTAMP}.db"
 cp "$DB_FILE" "$DEST"
 echo "Backup saved to $DEST"
 
-# Keep only the last 30 backups
+# Keep only the last 30 backups (delete oldest beyond 30)
 find "$BACKUP_DIR" -name "*.db" -type f | sort | head -n -30 | xargs -r rm --

@@ -86,7 +86,7 @@ function PredictCard() {
     setError(null);
     setResult(null);
     try {
-      const resp = await fetch(`${API_BASE}/predict`, {
+      const resp = await fetch(`${API_BASE}/predict/stock`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ symbol, entry_price: parseFloat(entryPrice) }),
@@ -125,7 +125,7 @@ function PredictCard() {
         <div style={{ marginTop: "16px" }}>
           <div style={styles.stat}>
             <span>Direction</span>
-            <span style={styles.badge(result.direction)}>{result.direction}</span>
+            <span style={styles.badge(result.prediction)}>{result.prediction}</span>
           </div>
           <div style={styles.stat}>
             <span>Confidence</span>

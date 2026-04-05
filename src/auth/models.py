@@ -1,7 +1,7 @@
 """Pydantic models for authentication."""
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional
 
 from pydantic import BaseModel, Field
@@ -22,7 +22,9 @@ class UserInDB(User):
 class APIKey(BaseModel):
     key: str = Field(..., description="API key value")
     name: str = Field(..., description="Human-readable label")
-    created_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(
+        default_factory=lambda: datetime.now(timezone.utc)
+    )
     expires_at: Optional[datetime] = None
     is_active: bool = True
 
