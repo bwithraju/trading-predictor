@@ -1,0 +1,19 @@
+[MASTER]
+ignore=.git,__pycache__,node_modules,frontend,venv
+
+[MESSAGES CONTROL]
+disable=
+    C0114,  # missing-module-docstring
+    C0115,  # missing-class-docstring
+    C0116,  # missing-function-docstring
+    R0903,  # too-few-public-methods
+    W0212,  # protected-access (tests)
+    W0611,  # unused-import (re-exports in __init__)
+
+[FORMAT]
+max-line-length=100
+
+[DESIGN]
+max-args=8
+max-attributes=12
+max-locals=20
