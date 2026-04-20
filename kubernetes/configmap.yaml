@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: trading-predictor-config
+data:
+  API_HOST: "0.0.0.0"
+  API_PORT: "8000"
+  DEBUG: "false"
+  DB_URL: "sqlite:///trading_predictor.db"
+  CACHE_DIR: "cache"
+  CACHE_TTL_SECONDS: "3600"
+  MODEL_DIR: "models"
+  CONFIDENCE_THRESHOLD: "0.70"
+  DEFAULT_RISK_PERCENT: "2.0"
+  DEFAULT_REWARD_RATIO: "2.0"

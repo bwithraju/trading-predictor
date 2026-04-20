@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trading-predictor
+  labels:
+    app: trading-predictor
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: trading-predictor
+  template:
+    metadata:
+      labels:
+        app: trading-predictor
+    spec:
+      containers:
+        - name: api
+          image: trading-predictor:latest
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - configMapRef:
+                name: trading-predictor-config
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+            limits:
+              cpu: "1000m"
+              memory: "1Gi"
