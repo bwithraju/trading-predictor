@@ -13,3 +13,25 @@ venv.bak/
 *.egg
 *.log
 *.sqlite3
+
+# Database files
+*.db
+
+# Model artifacts
+models/*.pkl
+models/*.joblib
+
+# Generated reports and data
+reports/*.html
+reports/*.json
+data/
+logs/
+cache/
+
+# Environment files
+.env
+
+# Coverage reports
+.coverage
+htmlcov/
+.pytest_cache/
